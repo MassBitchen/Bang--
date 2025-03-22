@@ -17,6 +17,9 @@ workspace "Bang"
  
  	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
  	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "bapch.h"
+	pchsource "Bang/src/bapch.cpp"
  
  	files
  	{
@@ -26,6 +29,7 @@ workspace "Bang"
  
  	includedirs
  	{
+        "%{prj.name}/src",
  		"%{prj.name}/vendor/spdlog/include"
  	}
      
@@ -35,7 +39,7 @@ workspace "Bang"
  	filter "system:windows"
  		cppdialect "C++17"
  		staticruntime "On"
- 		systemversion "10.0"
+ 		systemversion "latest"
  
  		defines
  		{
@@ -91,7 +95,7 @@ workspace "Bang"
  	filter "system:windows"
  		cppdialect "C++17"
  		staticruntime "On"
- 		systemversion "10.0"
+ 		systemversion "latest"
  
  		defines
  		{

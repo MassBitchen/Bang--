@@ -4,6 +4,9 @@
     <Filter Include="Bang">
       <UniqueIdentifier>{BDEB827C-A922-840D-520F-6A103E25000F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bang\Events">
+      <UniqueIdentifier>{0161BCBC-6D16-35B2-F60A-2F8962BF2BB6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bang.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Bang\EntryPoint.h">
       <Filter>Bang</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bang\Events\ApplicationEvent.h">
+      <Filter>Bang\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bang\Events\Event.h">
+      <Filter>Bang\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bang\Events\KeyEvent.h">
+      <Filter>Bang\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bang\Events\MouseEvent.h">
+      <Filter>Bang\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bang\Log.h">
       <Filter>Bang</Filter>
     </ClInclude>
+    <ClInclude Include="src\bapch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bang\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Bang\Log.cpp">
       <Filter>Bang</Filter>
     </ClCompile>
+    <ClCompile Include="src\bapch.cpp" />
   </ItemGroup>
 </Project>
