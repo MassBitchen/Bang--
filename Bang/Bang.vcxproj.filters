@@ -7,6 +7,12 @@
     <Filter Include="Bang\Events">
       <UniqueIdentifier>{0161BCBC-6D16-35B2-F60A-2F8962BF2BB6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bang\Platform">
+      <UniqueIdentifier>{B1AC76F9-1D6D-F22F-E6A7-3BAD5227370C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bang\Platform\Windows">
+      <UniqueIdentifier>{EB777ABB-57E4-35B6-20D8-CD138C03581E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bang.h" />
@@ -34,6 +40,12 @@
     <ClInclude Include="src\Bang\Log.h">
       <Filter>Bang</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bang\Platform\Windows\WindowsWindow.h">
+      <Filter>Bang\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bang\Window.h">
+      <Filter>Bang</Filter>
+    </ClInclude>
     <ClInclude Include="src\bapch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="src\Bang\Log.cpp">
       <Filter>Bang</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bang\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Bang\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\bapch.cpp" />
   </ItemGroup>

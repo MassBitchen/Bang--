@@ -9,6 +9,11 @@ workspace "Bang"
  	}
 
  outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+ IncludeDir = {}
+ IncludeDir["GLFW"] = "Bang/vendor/GLFW/include"
+ 
+ include "Bang/vendor/GLFW"
  
  project "Bang"
  	location "Bang"
@@ -30,11 +35,18 @@ workspace "Bang"
  	includedirs
  	{
         "%{prj.name}/src",
- 		"%{prj.name}/vendor/spdlog/include"
+ 		"%{prj.name}/vendor/spdlog/include",
+ 		"%{IncludeDir.GLFW}"
+ 	}
+
+	 links 
+ 	{ 
+ 		"GLFW",
+ 		"opengl32.lib"
  	}
      
     filter { "action:vs*" }
-        buildoptions { "/utf-8" }
+    buildoptions { "/utf-8" }
  
  	filter "system:windows"
  		cppdialect "C++17"
@@ -79,7 +91,7 @@ workspace "Bang"
  	}
 
     filter { "action:vs*" }
-        buildoptions { "/utf-8" }
+    buildoptions { "/utf-8" }
  
  	includedirs
  	{

@@ -10,6 +10,15 @@
 	#error Bang£¡only support windows
 #endif
 
+
+#ifdef BA_ENABLE_ASSERTS
+	#define BA_ASSERT(x, ...) { if(!(x)) { BA_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define BA_CORE_ASSERT(x, ...) { if(!(x)) { BA_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+	#define BA_ASSERT(x, ...)
+	#define BA_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)
 
 #define FMT_OSTREAM
