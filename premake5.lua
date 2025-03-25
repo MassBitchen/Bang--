@@ -15,16 +15,20 @@ IncludeDir["GLFW"] = "Bang/vendor/GLFW/include"
 IncludeDir["Glad"] = "Bang/vendor/Glad/include"
 IncludeDir["ImGui"] = "Bang/vendor/imgui"
  
-include "Bang/vendor/GLFW"
-include "Bang/vendor/Glad"
-include "Bang/vendor/imgui"
-
+group "Dependencies"
+	include "Bang/vendor/GLFW"
+	include "Bang/vendor/Glad"
+	include "Bang/vendor/imgui"
+ 
 startproject "Sandbox"
+
+ group ""
 
 project "Bang"
  	location "Bang"
  	kind "SharedLib"
  	language "C++"
+	staticruntime "off"
  
  	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
  	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -58,7 +62,6 @@ project "Bang"
  
  	filter "system:windows"
  		cppdialect "C++17"
- 		staticruntime "off"
  		systemversion "latest"
  
  		defines
@@ -75,19 +78,19 @@ project "Bang"
  
  	filter "configurations:Debug"
  		defines "BA_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		buildoptions { "/utf-8" }
  		symbols "On"
  
  	filter "configurations:Release"
  		defines "BA_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		buildoptions { "/utf-8" }
  		optimize "On"
  
  	filter "configurations:Dist"
  		defines "BA_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		buildoptions { "/utf-8" }
  		optimize "On"
  
@@ -95,6 +98,7 @@ project "Sandbox"
  	location "Sandbox"
  	kind "ConsoleApp"
  	language "C++"
+	staticruntime "off"
  
  	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
  	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -129,18 +133,18 @@ project "Sandbox"
  
  	filter "configurations:Debug"
  		defines "BA_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		buildoptions { "/utf-8" }
  		symbols "On"
  
  	filter "configurations:Release"
  		defines "BA_RELEASE"
-		buildoptions "/MD"
+		runtime "Debug"
 		buildoptions { "/utf-8" }
  		optimize "On"
  
  	filter "configurations:Dist"
  		defines "BA_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		buildoptions { "/utf-8" }
  		optimize "On"

@@ -10,6 +10,10 @@
 	#error Bang£¡only support windows
 #endif
 
+#ifdef BA_DEBUG
+	#define BA_ENABLE_ASSERTS
+#endif
+
 
 #ifdef BA_ENABLE_ASSERTS
 	#define BA_ASSERT(x, ...) { if(!(x)) { BA_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -20,5 +24,7 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define BA_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
 
 #define FMT_OSTREAM
