@@ -8,14 +8,20 @@ workspace "Bang"
  		"Dist"
  	}
 
- outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
- IncludeDir = {}
- IncludeDir["GLFW"] = "Bang/vendor/GLFW/include"
+IncludeDir = {}
+IncludeDir["GLFW"] = "Bang/vendor/GLFW/include"
+IncludeDir["Glad"] = "Bang/vendor/Glad/include"
+IncludeDir["ImGui"] = "Bang/vendor/imgui"
  
- include "Bang/vendor/GLFW"
- 
- project "Bang"
+include "Bang/vendor/GLFW"
+include "Bang/vendor/Glad"
+include "Bang/vendor/imgui"
+
+startproject "Sandbox"
+
+project "Bang"
  	location "Bang"
  	kind "SharedLib"
  	language "C++"
@@ -36,27 +42,30 @@ workspace "Bang"
  	{
         "%{prj.name}/src",
  		"%{prj.name}/vendor/spdlog/include",
- 		"%{IncludeDir.GLFW}"
+ 		"%{IncludeDir.GLFW}",
+ 		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
  	}
 
 	 links 
  	{ 
  		"GLFW",
+		"Glad",
+		"ImGui",
  		"opengl32.lib"
  	}
-     
-    filter { "action:vs*" }
-    buildoptions { "/utf-8" }
+    
  
  	filter "system:windows"
  		cppdialect "C++17"
- 		staticruntime "On"
+ 		staticruntime "off"
  		systemversion "latest"
  
  		defines
  		{
  			"BA_PLATFORM_WINDOWS",
- 			"BA_BUILD_DLL"
+ 			"BA_BUILD_DLL",
+ 			"GLFW_INCLUDE_NONE"
  		}
  
  		postbuildcommands
@@ -66,17 +75,23 @@ workspace "Bang"
  
  	filter "configurations:Debug"
  		defines "BA_DEBUG"
+		buildoptions "/MDd"
+		buildoptions { "/utf-8" }
  		symbols "On"
  
  	filter "configurations:Release"
  		defines "BA_RELEASE"
+		buildoptions "/MD"
+		buildoptions { "/utf-8" }
  		optimize "On"
  
  	filter "configurations:Dist"
  		defines "BA_DIST"
+		buildoptions "/MD"
+		buildoptions { "/utf-8" }
  		optimize "On"
  
- project "Sandbox"
+project "Sandbox"
  	location "Sandbox"
  	kind "ConsoleApp"
  	language "C++"
@@ -90,8 +105,6 @@ workspace "Bang"
  		"%{prj.name}/src/**.cpp"
  	}
 
-    filter { "action:vs*" }
-    buildoptions { "/utf-8" }
  
  	includedirs
  	{
@@ -106,7 +119,7 @@ workspace "Bang"
  
  	filter "system:windows"
  		cppdialect "C++17"
- 		staticruntime "On"
+ 		staticruntime "off"
  		systemversion "latest"
  
  		defines
@@ -116,12 +129,18 @@ workspace "Bang"
  
  	filter "configurations:Debug"
  		defines "BA_DEBUG"
+		buildoptions "/MDd"
+		buildoptions { "/utf-8" }
  		symbols "On"
  
  	filter "configurations:Release"
  		defines "BA_RELEASE"
+		buildoptions "/MD"
+		buildoptions { "/utf-8" }
  		optimize "On"
  
  	filter "configurations:Dist"
  		defines "BA_DIST"
+		buildoptions "/MD"
+		buildoptions { "/utf-8" }
  		optimize "On"

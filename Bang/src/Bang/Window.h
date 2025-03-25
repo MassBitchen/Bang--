@@ -5,6 +5,8 @@
 #include "Bang/Core.h"
 #include "Bang/Events/Event.h"
 
+
+
 namespace Bang {
 
     struct WindowProps

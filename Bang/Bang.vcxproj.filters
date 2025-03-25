@@ -7,11 +7,17 @@
     <Filter Include="Bang\Events">
       <UniqueIdentifier>{0161BCBC-6D16-35B2-F60A-2F8962BF2BB6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Bang\Platform">
-      <UniqueIdentifier>{B1AC76F9-1D6D-F22F-E6A7-3BAD5227370C}</UniqueIdentifier>
+    <Filter Include="Bang\ImGui">
+      <UniqueIdentifier>{A77A8E53-9332-D0A0-FC39-A9FCE8106B91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Bang\Platform\Windows">
-      <UniqueIdentifier>{EB777ABB-57E4-35B6-20D8-CD138C03581E}</UniqueIdentifier>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,14 +43,26 @@
     <ClInclude Include="src\Bang\Events\MouseEvent.h">
       <Filter>Bang\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bang\ImGui\ImGuiLayer.h">
+      <Filter>Bang\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bang\Layer.h">
+      <Filter>Bang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bang\LayerStack.h">
+      <Filter>Bang</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bang\Log.h">
       <Filter>Bang</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bang\Platform\Windows\WindowsWindow.h">
-      <Filter>Bang\Platform\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="src\Bang\Window.h">
       <Filter>Bang</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\bapch.h" />
   </ItemGroup>
@@ -52,11 +70,23 @@
     <ClCompile Include="src\Bang\Application.cpp">
       <Filter>Bang</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bang\ImGui\ImGuiLayer.cpp">
+      <Filter>Bang\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bang\Layer.cpp">
+      <Filter>Bang</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bang\LayerStack.cpp">
+      <Filter>Bang</Filter>
+    </ClCompile>
     <ClCompile Include="src\Bang\Log.cpp">
       <Filter>Bang</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bang\Platform\Windows\WindowsWindow.cpp">
-      <Filter>Bang\Platform\Windows</Filter>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\bapch.cpp" />
   </ItemGroup>

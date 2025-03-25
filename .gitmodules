@@ -4,3 +4,6 @@
 [submodule "Bang/vendor/GLFW"]
 	path = Bang/vendor/GLFW
 	url = https://github.com/TheCherno/glfw.git
+[submodule "Bang/vendor/imgui"]
+	path = Bang/vendor/imgui
+	url = https://github.com/TheCherno/imgui.git
